@@ -1,0 +1,229 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Visual Test Oracle Report</title>
+  <style>
+    :root { font-family: Inter, ui-sans-serif, system-ui, sans-serif; color: #172033; background: #f6f7f9; }
+    body { margin: 0; }
+    main { width: min(1120px, calc(100% - 32px)); margin: 0 auto; padding: 32px 0 56px; }
+    header { margin-bottom: 28px; }
+    h1 { font-size: clamp(2.4rem, 5vw, 4.6rem); line-height: 1; margin: 0 0 12px; letter-spacing: 0; }
+    h2 { margin-top: 34px; }
+    p, li { color: #4b5870; line-height: 1.65; }
+    .metrics { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 12px; }
+    .metric, .card { background: #fff; border: 1px solid #d9dee8; border-radius: 8px; padding: 16px; }
+    .metric strong { display: block; font-size: 2rem; color: #172033; }
+    table { width: 100%; border-collapse: collapse; background: #fff; border: 1px solid #d9dee8; border-radius: 8px; overflow: hidden; }
+    th, td { padding: 10px 12px; border-bottom: 1px solid #edf0f4; text-align: left; font-size: 0.92rem; }
+    th { background: #eef2f7; color: #263244; }
+    .pass { color: #0f766e; font-weight: 800; }
+    .fail { color: #b42318; font-weight: 800; }
+    .gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 12px; }
+    .gallery img { width: 100%; border: 1px solid #d9dee8; border-radius: 8px; background: #fff; }
+    code { background: #eef2f7; padding: 2px 5px; border-radius: 5px; }
+  </style>
+</head>
+<body>
+<main>
+  <header>
+    <p><strong>Research prototype</strong> · GUI regression testing with multimodal oracles</p>
+    <h1>Visual Test Oracle</h1>
+    <p>This report evaluates a screenshot-based GUI test oracle with k-run voting, controlled UI mutants, benign UI changes, and self-healing locator fallback.</p>
+  </header>
+
+  <section class="metrics">
+    <div class="metric"><span>Bug detection</span><strong>90%</strong></div>
+    <div class="metric"><span>False positives</span><strong>0%</strong></div>
+    <div class="metric"><span>Maintenance resilience</span><strong>100%</strong></div>
+    <div class="metric"><span>Mean agreement</span><strong>100%</strong></div>
+  </section>
+
+  <h2>Method</h2>
+  <div class="card">
+    <p>YAML test specs drive a Playwright runner. At each checkpoint the runner captures a screenshot and asks an oracle whether the UI matches the natural-language expected outcome. The oracle is run three times per checkpoint and majority vote is used as the final verdict. CI uses a deterministic DOM-backed oracle; OpenAI and Ollama adapters can be enabled for model-backed runs.</p>
+  </div>
+
+  <h2>Results</h2>
+  <table>
+    <thead><tr><th>Case</th><th>Expected</th><th>Actual</th><th>Agreement</th><th>Healing</th><th>Reason</th></tr></thead>
+    <tbody>
+    
+      <tr>
+        <td><code>checkout_success_state__clean__default</code></td>
+        <td>pass</td>
+        <td class="pass">pass</td>
+        <td>100%</td>
+        <td>0</td>
+        <td>DOM-visible state matches expected outcome</td>
+      </tr>
+    
+      <tr>
+        <td><code>checkout_total_state__clean__default</code></td>
+        <td>pass</td>
+        <td class="pass">pass</td>
+        <td>100%</td>
+        <td>0</td>
+        <td>DOM-visible state matches expected outcome</td>
+      </tr>
+    
+      <tr>
+        <td><code>checkout_success_state__hidden_checkout__default</code></td>
+        <td>fail</td>
+        <td class="fail">fail</td>
+        <td>100%</td>
+        <td>1</td>
+        <td>confirmation banner is not visible; confirmation text is not close to Order placed; confirmation banner is not visually green/success; cart count did not reset to 0</td>
+      </tr>
+    
+      <tr>
+        <td><code>checkout_success_state__disabled_button__default</code></td>
+        <td>fail</td>
+        <td class="fail">fail</td>
+        <td>100%</td>
+        <td>1</td>
+        <td>confirmation banner is not visible; confirmation text is not close to Order placed; confirmation banner is not visually green/success; cart count did not reset to 0</td>
+      </tr>
+    
+      <tr>
+        <td><code>checkout_success_state__wrong_color__default</code></td>
+        <td>fail</td>
+        <td class="fail">fail</td>
+        <td>100%</td>
+        <td>0</td>
+        <td>confirmation banner is not visually green/success</td>
+      </tr>
+    
+      <tr>
+        <td><code>checkout_success_state__wrong_copy__default</code></td>
+        <td>fail</td>
+        <td class="fail">fail</td>
+        <td>100%</td>
+        <td>0</td>
+        <td>confirmation text is not close to Order placed</td>
+      </tr>
+    
+      <tr>
+        <td><code>checkout_success_state__cart_not_reset__default</code></td>
+        <td>fail</td>
+        <td class="fail">fail</td>
+        <td>100%</td>
+        <td>0</td>
+        <td>cart count did not reset to 0</td>
+      </tr>
+    
+      <tr>
+        <td><code>checkout_total_state__missing_total__default</code></td>
+        <td>fail</td>
+        <td class="fail">fail</td>
+        <td>100%</td>
+        <td>0</td>
+        <td>total row is not visible</td>
+      </tr>
+    
+      <tr>
+        <td><code>checkout_total_state__wrong_currency__default</code></td>
+        <td>fail</td>
+        <td class="fail">fail</td>
+        <td>100%</td>
+        <td>0</td>
+        <td>total price changed</td>
+      </tr>
+    
+      <tr>
+        <td><code>checkout_success_state__layout_shift__default</code></td>
+        <td>fail</td>
+        <td class="pass">pass</td>
+        <td>100%</td>
+        <td>0</td>
+        <td>DOM-visible state matches expected outcome</td>
+      </tr>
+    
+      <tr>
+        <td><code>checkout_success_state__missing_confirmation__default</code></td>
+        <td>fail</td>
+        <td class="fail">fail</td>
+        <td>100%</td>
+        <td>0</td>
+        <td>confirmation banner is not visible; confirmation text is not close to Order placed; confirmation banner is not visually green/success</td>
+      </tr>
+    
+      <tr>
+        <td><code>checkout_success_state__extra_error__default</code></td>
+        <td>fail</td>
+        <td class="fail">fail</td>
+        <td>100%</td>
+        <td>0</td>
+        <td>confirmation text is not close to Order placed; confirmation banner is not visually green/success</td>
+      </tr>
+    
+      <tr>
+        <td><code>checkout_success_state__clean__benign_copy</code></td>
+        <td>pass</td>
+        <td class="pass">pass</td>
+        <td>100%</td>
+        <td>0</td>
+        <td>DOM-visible state matches expected outcome</td>
+      </tr>
+    
+      <tr>
+        <td><code>selector_healing_checkout__clean__renamed_selector</code></td>
+        <td>pass</td>
+        <td class="pass">pass</td>
+        <td>100%</td>
+        <td>1</td>
+        <td>DOM-visible state matches expected outcome</td>
+      </tr>
+    
+    </tbody>
+  </table>
+
+  <h2>Evidence</h2>
+  <div class="card">
+    <p>Short demo sequence:</p>
+    <img src="assets/demo.gif" alt="Animated demo of the visual oracle flow" style="width: min(720px, 100%); border-radius: 8px; border: 1px solid #d9dee8;">
+  </div>
+  <div class="gallery">
+    
+      <figure>
+        <img src="assets/checkout_success_state__clean__default.png" alt="checkout_success_state__clean__default">
+        <figcaption>checkout_success_state__clean__default</figcaption>
+      </figure>
+    
+      <figure>
+        <img src="assets/checkout_total_state__clean__default.png" alt="checkout_total_state__clean__default">
+        <figcaption>checkout_total_state__clean__default</figcaption>
+      </figure>
+    
+      <figure>
+        <img src="assets/checkout_success_state__hidden_checkout__default.png" alt="checkout_success_state__hidden_checkout__default">
+        <figcaption>checkout_success_state__hidden_checkout__default</figcaption>
+      </figure>
+    
+      <figure>
+        <img src="assets/checkout_success_state__disabled_button__default.png" alt="checkout_success_state__disabled_button__default">
+        <figcaption>checkout_success_state__disabled_button__default</figcaption>
+      </figure>
+    
+      <figure>
+        <img src="assets/checkout_success_state__wrong_color__default.png" alt="checkout_success_state__wrong_color__default">
+        <figcaption>checkout_success_state__wrong_color__default</figcaption>
+      </figure>
+    
+      <figure>
+        <img src="assets/checkout_success_state__wrong_copy__default.png" alt="checkout_success_state__wrong_copy__default">
+        <figcaption>checkout_success_state__wrong_copy__default</figcaption>
+      </figure>
+    
+  </div>
+
+  <h2>Limitations and Next Steps</h2>
+  <ul>
+    <li>The committed CI path avoids API spending; OpenAI-backed runs require <code>OPENAI_API_KEY</code>.</li>
+    <li>The local vision comparison uses Ollama <code>qwen2.5vl:latest</code> when installed and is intentionally bounded to a small subset on CPU-only machines.</li>
+    <li>The self-healing locator path records when it falls back from a failed CSS selector to model or accessibility-guided clicking.</li>
+  </ul>
+</main>
+</body>
+</html>

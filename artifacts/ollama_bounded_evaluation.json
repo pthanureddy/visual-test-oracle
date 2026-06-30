@@ -1,0 +1,793 @@
+[
+  {
+    "case_id": "checkout_success_state__clean__default",
+    "test_id": "checkout_success_state",
+    "bug": "clean",
+    "variant": "default",
+    "provider": "heuristic",
+    "expected_verdict": "pass",
+    "actual_verdict": "pass",
+    "passed_expectation": true,
+    "agreement_rate": 1.0,
+    "confidence": 0.92,
+    "reasons": [
+      "DOM-visible state matches expected outcome"
+    ],
+    "votes": [
+      {
+        "verdict": "pass",
+        "confidence": 0.92,
+        "reasoning": "DOM-visible state matches expected outcome",
+        "provider": "heuristic-dom",
+        "latency_seconds": 9.100011084228754e-06,
+        "cost_usd": 0.0
+      }
+    ],
+    "healing_events": [],
+    "screenshot": "C:\\Users\\praha\\Documents\\PHD projects\\visual-test-oracle\\artifacts\\screenshots\\checkout_success_state__clean__default.png",
+    "dom_snapshot": {
+      "cart_count": "0",
+      "total_visible": true,
+      "total_price": "$29.00",
+      "confirmation": {
+        "visible": true,
+        "text": "Order placed",
+        "role": "success",
+        "background": "rgb(18, 128, 92)"
+      },
+      "checkout_button": {
+        "visible": true,
+        "text": "Checkout",
+        "box": {
+          "x": 305,
+          "y": 555.59375,
+          "width": 670,
+          "height": 48
+        }
+      }
+    }
+  },
+  {
+    "case_id": "checkout_total_state__clean__default",
+    "test_id": "checkout_total_state",
+    "bug": "clean",
+    "variant": "default",
+    "provider": "heuristic",
+    "expected_verdict": "pass",
+    "actual_verdict": "pass",
+    "passed_expectation": true,
+    "agreement_rate": 1.0,
+    "confidence": 0.92,
+    "reasons": [
+      "DOM-visible state matches expected outcome"
+    ],
+    "votes": [
+      {
+        "verdict": "pass",
+        "confidence": 0.92,
+        "reasoning": "DOM-visible state matches expected outcome",
+        "provider": "heuristic-dom",
+        "latency_seconds": 9.899958968162537e-06,
+        "cost_usd": 0.0
+      }
+    ],
+    "healing_events": [],
+    "screenshot": "C:\\Users\\praha\\Documents\\PHD projects\\visual-test-oracle\\artifacts\\screenshots\\checkout_total_state__clean__default.png",
+    "dom_snapshot": {
+      "cart_count": "0",
+      "total_visible": true,
+      "total_price": "$29.00",
+      "confirmation": {
+        "visible": true,
+        "text": "Order placed",
+        "role": "success",
+        "background": "rgb(18, 128, 92)"
+      },
+      "checkout_button": {
+        "visible": true,
+        "text": "Checkout",
+        "box": {
+          "x": 305,
+          "y": 555.59375,
+          "width": 670,
+          "height": 48
+        }
+      }
+    }
+  },
+  {
+    "case_id": "checkout_success_state__hidden_checkout__default",
+    "test_id": "checkout_success_state",
+    "bug": "hidden_checkout",
+    "variant": "default",
+    "provider": "heuristic",
+    "expected_verdict": "fail",
+    "actual_verdict": "fail",
+    "passed_expectation": true,
+    "agreement_rate": 1.0,
+    "confidence": 0.88,
+    "reasons": [
+      "confirmation banner is not visible; confirmation text is not close to Order placed; confirmation banner is not visually green/success; cart count did not reset to 0"
+    ],
+    "votes": [
+      {
+        "verdict": "fail",
+        "confidence": 0.88,
+        "reasoning": "confirmation banner is not visible; confirmation text is not close to Order placed; confirmation banner is not visually green/success; cart count did not reset to 0",
+        "provider": "heuristic-dom",
+        "latency_seconds": 9.200011845678091e-06,
+        "cost_usd": 0.0
+      }
+    ],
+    "healing_events": [
+      {
+        "method": "self-heal-failed",
+        "confidence": 0.0,
+        "error": "Locator.click: Timeout 30000ms exceeded.\nCall log:\n  - waiting for get_by_role(\"button\").filter(has_text=\"Checkout\").or_(get_by_role(\"button\").filter(has_text=\"Place order\")).first\n",
+        "failed_selector": "#checkout-btn"
+      }
+    ],
+    "screenshot": "C:\\Users\\praha\\Documents\\PHD projects\\visual-test-oracle\\artifacts\\screenshots\\checkout_success_state__hidden_checkout__default.png",
+    "dom_snapshot": {
+      "cart_count": "1",
+      "total_visible": true,
+      "total_price": "$29.00",
+      "confirmation": {
+        "visible": false,
+        "text": "",
+        "role": "missing",
+        "background": ""
+      },
+      "checkout_button": {
+        "visible": false,
+        "text": "Checkout",
+        "box": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        }
+      }
+    }
+  },
+  {
+    "case_id": "checkout_success_state__disabled_button__default",
+    "test_id": "checkout_success_state",
+    "bug": "disabled_button",
+    "variant": "default",
+    "provider": "heuristic",
+    "expected_verdict": "fail",
+    "actual_verdict": "fail",
+    "passed_expectation": true,
+    "agreement_rate": 1.0,
+    "confidence": 0.88,
+    "reasons": [
+      "confirmation banner is not visible; confirmation text is not close to Order placed; confirmation banner is not visually green/success; cart count did not reset to 0"
+    ],
+    "votes": [
+      {
+        "verdict": "fail",
+        "confidence": 0.88,
+        "reasoning": "confirmation banner is not visible; confirmation text is not close to Order placed; confirmation banner is not visually green/success; cart count did not reset to 0",
+        "provider": "heuristic-dom",
+        "latency_seconds": 7.700000423938036e-06,
+        "cost_usd": 0.0
+      }
+    ],
+    "healing_events": [
+      {
+        "method": "heuristic-dom-bounding-box",
+        "x": 640.0,
+        "y": 579.59375,
+        "confidence": 0.84,
+        "failed_selector": "#checkout-btn"
+      }
+    ],
+    "screenshot": "C:\\Users\\praha\\Documents\\PHD projects\\visual-test-oracle\\artifacts\\screenshots\\checkout_success_state__disabled_button__default.png",
+    "dom_snapshot": {
+      "cart_count": "1",
+      "total_visible": true,
+      "total_price": "$29.00",
+      "confirmation": {
+        "visible": false,
+        "text": "",
+        "role": "missing",
+        "background": ""
+      },
+      "checkout_button": {
+        "visible": true,
+        "text": "Checkout",
+        "box": {
+          "x": 305,
+          "y": 555.59375,
+          "width": 670,
+          "height": 48
+        }
+      }
+    }
+  },
+  {
+    "case_id": "checkout_success_state__wrong_color__default",
+    "test_id": "checkout_success_state",
+    "bug": "wrong_color",
+    "variant": "default",
+    "provider": "heuristic",
+    "expected_verdict": "fail",
+    "actual_verdict": "fail",
+    "passed_expectation": true,
+    "agreement_rate": 1.0,
+    "confidence": 0.88,
+    "reasons": [
+      "confirmation banner is not visually green/success"
+    ],
+    "votes": [
+      {
+        "verdict": "fail",
+        "confidence": 0.88,
+        "reasoning": "confirmation banner is not visually green/success",
+        "provider": "heuristic-dom",
+        "latency_seconds": 6.799993570894003e-06,
+        "cost_usd": 0.0
+      }
+    ],
+    "healing_events": [],
+    "screenshot": "C:\\Users\\praha\\Documents\\PHD projects\\visual-test-oracle\\artifacts\\screenshots\\checkout_success_state__wrong_color__default.png",
+    "dom_snapshot": {
+      "cart_count": "0",
+      "total_visible": true,
+      "total_price": "$29.00",
+      "confirmation": {
+        "visible": true,
+        "text": "Order placed",
+        "role": "non-success",
+        "background": "rgb(161, 92, 7)"
+      },
+      "checkout_button": {
+        "visible": true,
+        "text": "Checkout",
+        "box": {
+          "x": 305,
+          "y": 555.59375,
+          "width": 670,
+          "height": 48
+        }
+      }
+    }
+  },
+  {
+    "case_id": "checkout_success_state__wrong_copy__default",
+    "test_id": "checkout_success_state",
+    "bug": "wrong_copy",
+    "variant": "default",
+    "provider": "heuristic",
+    "expected_verdict": "fail",
+    "actual_verdict": "fail",
+    "passed_expectation": true,
+    "agreement_rate": 1.0,
+    "confidence": 0.88,
+    "reasons": [
+      "confirmation text is not close to Order placed"
+    ],
+    "votes": [
+      {
+        "verdict": "fail",
+        "confidence": 0.88,
+        "reasoning": "confirmation text is not close to Order placed",
+        "provider": "heuristic-dom",
+        "latency_seconds": 8.300004992634058e-06,
+        "cost_usd": 0.0
+      }
+    ],
+    "healing_events": [],
+    "screenshot": "C:\\Users\\praha\\Documents\\PHD projects\\visual-test-oracle\\artifacts\\screenshots\\checkout_success_state__wrong_copy__default.png",
+    "dom_snapshot": {
+      "cart_count": "0",
+      "total_visible": true,
+      "total_price": "$29.00",
+      "confirmation": {
+        "visible": true,
+        "text": "Order delayed",
+        "role": "success",
+        "background": "rgb(18, 128, 92)"
+      },
+      "checkout_button": {
+        "visible": true,
+        "text": "Checkout",
+        "box": {
+          "x": 305,
+          "y": 555.59375,
+          "width": 670,
+          "height": 48
+        }
+      }
+    }
+  },
+  {
+    "case_id": "checkout_success_state__cart_not_reset__default",
+    "test_id": "checkout_success_state",
+    "bug": "cart_not_reset",
+    "variant": "default",
+    "provider": "heuristic",
+    "expected_verdict": "fail",
+    "actual_verdict": "fail",
+    "passed_expectation": true,
+    "agreement_rate": 1.0,
+    "confidence": 0.88,
+    "reasons": [
+      "cart count did not reset to 0"
+    ],
+    "votes": [
+      {
+        "verdict": "fail",
+        "confidence": 0.88,
+        "reasoning": "cart count did not reset to 0",
+        "provider": "heuristic-dom",
+        "latency_seconds": 8.700008038431406e-06,
+        "cost_usd": 0.0
+      }
+    ],
+    "healing_events": [],
+    "screenshot": "C:\\Users\\praha\\Documents\\PHD projects\\visual-test-oracle\\artifacts\\screenshots\\checkout_success_state__cart_not_reset__default.png",
+    "dom_snapshot": {
+      "cart_count": "1",
+      "total_visible": true,
+      "total_price": "$29.00",
+      "confirmation": {
+        "visible": true,
+        "text": "Order placed",
+        "role": "success",
+        "background": "rgb(18, 128, 92)"
+      },
+      "checkout_button": {
+        "visible": true,
+        "text": "Checkout",
+        "box": {
+          "x": 305,
+          "y": 555.59375,
+          "width": 670,
+          "height": 48
+        }
+      }
+    }
+  },
+  {
+    "case_id": "checkout_total_state__missing_total__default",
+    "test_id": "checkout_total_state",
+    "bug": "missing_total",
+    "variant": "default",
+    "provider": "heuristic",
+    "expected_verdict": "fail",
+    "actual_verdict": "fail",
+    "passed_expectation": true,
+    "agreement_rate": 1.0,
+    "confidence": 0.88,
+    "reasons": [
+      "total row is not visible"
+    ],
+    "votes": [
+      {
+        "verdict": "fail",
+        "confidence": 0.88,
+        "reasoning": "total row is not visible",
+        "provider": "heuristic-dom",
+        "latency_seconds": 1.0200019460171461e-05,
+        "cost_usd": 0.0
+      }
+    ],
+    "healing_events": [],
+    "screenshot": "C:\\Users\\praha\\Documents\\PHD projects\\visual-test-oracle\\artifacts\\screenshots\\checkout_total_state__missing_total__default.png",
+    "dom_snapshot": {
+      "cart_count": "0",
+      "total_visible": false,
+      "total_price": "$29.00",
+      "confirmation": {
+        "visible": true,
+        "text": "Order placed",
+        "role": "success",
+        "background": "rgb(18, 128, 92)"
+      },
+      "checkout_button": {
+        "visible": true,
+        "text": "Checkout",
+        "box": {
+          "x": 305,
+          "y": 529.59375,
+          "width": 670,
+          "height": 48
+        }
+      }
+    }
+  },
+  {
+    "case_id": "checkout_total_state__wrong_currency__default",
+    "test_id": "checkout_total_state",
+    "bug": "wrong_currency",
+    "variant": "default",
+    "provider": "heuristic",
+    "expected_verdict": "fail",
+    "actual_verdict": "fail",
+    "passed_expectation": true,
+    "agreement_rate": 1.0,
+    "confidence": 0.88,
+    "reasons": [
+      "total price changed"
+    ],
+    "votes": [
+      {
+        "verdict": "fail",
+        "confidence": 0.88,
+        "reasoning": "total price changed",
+        "provider": "heuristic-dom",
+        "latency_seconds": 6.89999433234334e-06,
+        "cost_usd": 0.0
+      }
+    ],
+    "healing_events": [],
+    "screenshot": "C:\\Users\\praha\\Documents\\PHD projects\\visual-test-oracle\\artifacts\\screenshots\\checkout_total_state__wrong_currency__default.png",
+    "dom_snapshot": {
+      "cart_count": "0",
+      "total_visible": true,
+      "total_price": "\u20ac29.00",
+      "confirmation": {
+        "visible": true,
+        "text": "Order placed",
+        "role": "success",
+        "background": "rgb(18, 128, 92)"
+      },
+      "checkout_button": {
+        "visible": true,
+        "text": "Checkout",
+        "box": {
+          "x": 305,
+          "y": 555.59375,
+          "width": 670,
+          "height": 48
+        }
+      }
+    }
+  },
+  {
+    "case_id": "checkout_success_state__layout_shift__default",
+    "test_id": "checkout_success_state",
+    "bug": "layout_shift",
+    "variant": "default",
+    "provider": "heuristic",
+    "expected_verdict": "fail",
+    "actual_verdict": "pass",
+    "passed_expectation": false,
+    "agreement_rate": 1.0,
+    "confidence": 0.92,
+    "reasons": [
+      "DOM-visible state matches expected outcome"
+    ],
+    "votes": [
+      {
+        "verdict": "pass",
+        "confidence": 0.92,
+        "reasoning": "DOM-visible state matches expected outcome",
+        "provider": "heuristic-dom",
+        "latency_seconds": 6.599992047995329e-06,
+        "cost_usd": 0.0
+      }
+    ],
+    "healing_events": [],
+    "screenshot": "C:\\Users\\praha\\Documents\\PHD projects\\visual-test-oracle\\artifacts\\screenshots\\checkout_success_state__layout_shift__default.png",
+    "dom_snapshot": {
+      "cart_count": "0",
+      "total_visible": true,
+      "total_price": "$29.00",
+      "confirmation": {
+        "visible": true,
+        "text": "Order placed",
+        "role": "success",
+        "background": "rgb(18, 128, 92)"
+      },
+      "checkout_button": {
+        "visible": true,
+        "text": "Checkout",
+        "box": {
+          "x": 353,
+          "y": 555.59375,
+          "width": 590,
+          "height": 48
+        }
+      }
+    }
+  },
+  {
+    "case_id": "checkout_success_state__missing_confirmation__default",
+    "test_id": "checkout_success_state",
+    "bug": "missing_confirmation",
+    "variant": "default",
+    "provider": "heuristic",
+    "expected_verdict": "fail",
+    "actual_verdict": "fail",
+    "passed_expectation": true,
+    "agreement_rate": 1.0,
+    "confidence": 0.88,
+    "reasons": [
+      "confirmation banner is not visible; confirmation text is not close to Order placed; confirmation banner is not visually green/success"
+    ],
+    "votes": [
+      {
+        "verdict": "fail",
+        "confidence": 0.88,
+        "reasoning": "confirmation banner is not visible; confirmation text is not close to Order placed; confirmation banner is not visually green/success",
+        "provider": "heuristic-dom",
+        "latency_seconds": 6.399990525096655e-06,
+        "cost_usd": 0.0
+      }
+    ],
+    "healing_events": [],
+    "screenshot": "C:\\Users\\praha\\Documents\\PHD projects\\visual-test-oracle\\artifacts\\screenshots\\checkout_success_state__missing_confirmation__default.png",
+    "dom_snapshot": {
+      "cart_count": "0",
+      "total_visible": true,
+      "total_price": "$29.00",
+      "confirmation": {
+        "visible": false,
+        "text": "",
+        "role": "missing",
+        "background": ""
+      },
+      "checkout_button": {
+        "visible": true,
+        "text": "Checkout",
+        "box": {
+          "x": 305,
+          "y": 555.59375,
+          "width": 670,
+          "height": 48
+        }
+      }
+    }
+  },
+  {
+    "case_id": "checkout_success_state__extra_error__default",
+    "test_id": "checkout_success_state",
+    "bug": "extra_error",
+    "variant": "default",
+    "provider": "heuristic",
+    "expected_verdict": "fail",
+    "actual_verdict": "fail",
+    "passed_expectation": true,
+    "agreement_rate": 1.0,
+    "confidence": 0.88,
+    "reasons": [
+      "confirmation text is not close to Order placed; confirmation banner is not visually green/success"
+    ],
+    "votes": [
+      {
+        "verdict": "fail",
+        "confidence": 0.88,
+        "reasoning": "confirmation text is not close to Order placed; confirmation banner is not visually green/success",
+        "provider": "heuristic-dom",
+        "latency_seconds": 5.200039595365524e-06,
+        "cost_usd": 0.0
+      }
+    ],
+    "healing_events": [],
+    "screenshot": "C:\\Users\\praha\\Documents\\PHD projects\\visual-test-oracle\\artifacts\\screenshots\\checkout_success_state__extra_error__default.png",
+    "dom_snapshot": {
+      "cart_count": "0",
+      "total_visible": true,
+      "total_price": "$29.00",
+      "confirmation": {
+        "visible": true,
+        "text": "Payment review required",
+        "role": "non-success",
+        "background": "rgb(180, 35, 24)"
+      },
+      "checkout_button": {
+        "visible": true,
+        "text": "Checkout",
+        "box": {
+          "x": 305,
+          "y": 555.59375,
+          "width": 670,
+          "height": 48
+        }
+      }
+    }
+  },
+  {
+    "case_id": "checkout_success_state__clean__benign_copy",
+    "test_id": "checkout_success_state",
+    "bug": "clean",
+    "variant": "benign_copy",
+    "provider": "heuristic",
+    "expected_verdict": "pass",
+    "actual_verdict": "pass",
+    "passed_expectation": true,
+    "agreement_rate": 1.0,
+    "confidence": 0.92,
+    "reasons": [
+      "DOM-visible state matches expected outcome"
+    ],
+    "votes": [
+      {
+        "verdict": "pass",
+        "confidence": 0.92,
+        "reasoning": "DOM-visible state matches expected outcome",
+        "provider": "heuristic-dom",
+        "latency_seconds": 5.999987479299307e-06,
+        "cost_usd": 0.0
+      }
+    ],
+    "healing_events": [],
+    "screenshot": "C:\\Users\\praha\\Documents\\PHD projects\\visual-test-oracle\\artifacts\\screenshots\\checkout_success_state__clean__benign_copy.png",
+    "dom_snapshot": {
+      "cart_count": "0",
+      "total_visible": true,
+      "total_price": "$29.00",
+      "confirmation": {
+        "visible": true,
+        "text": "Order placed",
+        "role": "success",
+        "background": "rgb(18, 128, 92)"
+      },
+      "checkout_button": {
+        "visible": true,
+        "text": "Place order",
+        "box": {
+          "x": 305,
+          "y": 555.59375,
+          "width": 670,
+          "height": 48
+        }
+      }
+    }
+  },
+  {
+    "case_id": "selector_healing_checkout__clean__renamed_selector",
+    "test_id": "selector_healing_checkout",
+    "bug": "clean",
+    "variant": "renamed_selector",
+    "provider": "heuristic",
+    "expected_verdict": "pass",
+    "actual_verdict": "pass",
+    "passed_expectation": true,
+    "agreement_rate": 1.0,
+    "confidence": 0.92,
+    "reasons": [
+      "DOM-visible state matches expected outcome"
+    ],
+    "votes": [
+      {
+        "verdict": "pass",
+        "confidence": 0.92,
+        "reasoning": "DOM-visible state matches expected outcome",
+        "provider": "heuristic-dom",
+        "latency_seconds": 5.89998671784997e-06,
+        "cost_usd": 0.0
+      }
+    ],
+    "healing_events": [
+      {
+        "method": "heuristic-dom-bounding-box",
+        "x": 640.0,
+        "y": 579.59375,
+        "confidence": 0.84,
+        "failed_selector": "#checkout-btn"
+      }
+    ],
+    "screenshot": "C:\\Users\\praha\\Documents\\PHD projects\\visual-test-oracle\\artifacts\\screenshots\\selector_healing_checkout__clean__renamed_selector.png",
+    "dom_snapshot": {
+      "cart_count": "0",
+      "total_visible": true,
+      "total_price": "$29.00",
+      "confirmation": {
+        "visible": true,
+        "text": "Order placed",
+        "role": "success",
+        "background": "rgb(18, 128, 92)"
+      },
+      "checkout_button": {
+        "visible": true,
+        "text": "Place order",
+        "box": {
+          "x": 305,
+          "y": 555.59375,
+          "width": 670,
+          "height": 48
+        }
+      }
+    }
+  },
+  {
+    "case_id": "checkout_success_state__clean__default",
+    "test_id": "checkout_success_state",
+    "bug": "clean",
+    "variant": "default",
+    "provider": "ollama",
+    "expected_verdict": "pass",
+    "actual_verdict": "fail",
+    "passed_expectation": false,
+    "agreement_rate": 1.0,
+    "confidence": 0.0,
+    "reasons": [
+      "Ollama comparison unavailable: timed out"
+    ],
+    "votes": [
+      {
+        "verdict": "fail",
+        "confidence": 0.0,
+        "reasoning": "Ollama comparison unavailable: timed out",
+        "provider": "ollama:qwen2.5vl",
+        "latency_seconds": 120.11166539997794,
+        "cost_usd": 0.0
+      }
+    ],
+    "healing_events": [],
+    "screenshot": "C:\\Users\\praha\\Documents\\PHD projects\\visual-test-oracle\\artifacts\\screenshots\\checkout_success_state__clean__default.png",
+    "dom_snapshot": {
+      "cart_count": "0",
+      "total_visible": true,
+      "total_price": "$29.00",
+      "confirmation": {
+        "visible": true,
+        "text": "Order placed",
+        "role": "success",
+        "background": "rgb(18, 128, 92)"
+      },
+      "checkout_button": {
+        "visible": true,
+        "text": "Checkout",
+        "box": {
+          "x": 305,
+          "y": 555.59375,
+          "width": 670,
+          "height": 48
+        }
+      }
+    }
+  },
+  {
+    "case_id": "checkout_success_state__wrong_copy__default",
+    "test_id": "checkout_success_state",
+    "bug": "wrong_copy",
+    "variant": "default",
+    "provider": "ollama",
+    "expected_verdict": "fail",
+    "actual_verdict": "fail",
+    "passed_expectation": true,
+    "agreement_rate": 1.0,
+    "confidence": 0.67,
+    "reasons": [
+      "The GUI screenshot displays a 'Checkout Review' page instead of an order confirmation, and there's no green confirmation banner with text indicating that the order has been placed. Additionally, the cart icon shows 'Cart 0', which is correct but does not match the expected outcome."
+    ],
+    "votes": [
+      {
+        "verdict": "fail",
+        "confidence": 0.67,
+        "reasoning": "The GUI screenshot displays a 'Checkout Review' page instead of an order confirmation, and there's no green confirmation banner with text indicating that the order has been placed. Additionally, the cart icon shows 'Cart 0', which is correct but does not match the expected outcome.",
+        "provider": "ollama:qwen2.5vl",
+        "latency_seconds": 115.56589720002376,
+        "cost_usd": 0.0
+      }
+    ],
+    "healing_events": [],
+    "screenshot": "C:\\Users\\praha\\Documents\\PHD projects\\visual-test-oracle\\artifacts\\screenshots\\checkout_success_state__wrong_copy__default.png",
+    "dom_snapshot": {
+      "cart_count": "0",
+      "total_visible": true,
+      "total_price": "$29.00",
+      "confirmation": {
+        "visible": true,
+        "text": "Order delayed",
+        "role": "success",
+        "background": "rgb(18, 128, 92)"
+      },
+      "checkout_button": {
+        "visible": true,
+        "text": "Checkout",
+        "box": {
+          "x": 305,
+          "y": 555.59375,
+          "width": 670,
+          "height": 48
+        }
+      }
+    }
+  }
+]

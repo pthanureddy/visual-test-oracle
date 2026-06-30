@@ -1,0 +1,16 @@
+test_id: checkout_total_state
+description: >
+  Confirms that the order summary still displays the expected total after
+  checkout.
+steps:
+  - action: goto
+    url: "/"
+  - action: click
+    selector: "#checkout-btn"
+    target_description: "the main checkout or place order button in the order summary panel"
+  - action: wait
+    ms: 300
+checkpoint: screenshot
+expected_outcome: >
+  A green confirmation banner is visible with text close to "Order placed".
+  The total is visible and remains $29.00.

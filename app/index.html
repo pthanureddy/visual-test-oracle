@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Visual Test Oracle Demo Store</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="shell">
+      <section class="checkout" aria-labelledby="checkout-title">
+        <header class="checkout__header">
+          <div>
+            <p class="eyebrow">BTH GUI V&V demo</p>
+            <h1 id="checkout-title">Checkout Review</h1>
+          </div>
+          <div class="cart-pill" aria-label="Cart count">
+            <span>Cart</span>
+            <strong id="cart-count">1</strong>
+          </div>
+        </header>
+
+        <section class="panel" aria-label="Order summary">
+          <div class="line-item">
+            <div>
+              <h2>Applied testing handbook</h2>
+              <p>Digital access, academic license</p>
+            </div>
+            <strong id="item-price">$29.00</strong>
+          </div>
+          <dl class="totals">
+            <div>
+              <dt>Subtotal</dt>
+              <dd>$29.00</dd>
+            </div>
+            <div id="tax-row">
+              <dt>Tax</dt>
+              <dd>$0.00</dd>
+            </div>
+            <div class="total-row" id="total-row">
+              <dt>Total</dt>
+              <dd id="total-price">$29.00</dd>
+            </div>
+          </dl>
+          <button id="checkout-btn" class="primary-action" type="button">Checkout</button>
+        </section>
+
+        <section id="status-region" class="status-region" aria-live="polite"></section>
+      </section>
+    </main>
+    <script src="./app.js"></script>
+  </body>
+</html>

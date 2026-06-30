@@ -1,0 +1,16 @@
+test_id: selector_healing_checkout
+description: >
+  Exercises locator maintenance: the original CSS selector can fail, but the
+  visible button can still be found from its natural-language description.
+steps:
+  - action: goto
+    url: "/"
+  - action: click
+    selector: "#checkout-btn"
+    target_description: "the visible checkout or place order button that submits the order"
+  - action: wait
+    ms: 300
+checkpoint: screenshot
+expected_outcome: >
+  A green confirmation banner is visible with text close to "Order placed".
+  The cart icon shows the number 0.
