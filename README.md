@@ -58,7 +58,12 @@ This repository also includes `artifacts/ollama_bounded_evaluation.json`, a boun
 
 ## Related Work
 
-This prototype is intended to support a BTH PhD application around GUI-based testing, AI-supported verification and validation, test-oracle construction, and non-deterministic AI evaluation. It is directly aligned with visual GUI testing and web-element-localization research lines associated with Emil Alegroth's group.
+This prototype is positioned as a standalone engineering case study in GUI regression testing, test-oracle design, visual checking, locator resilience, and controlled evaluation of non-deterministic model behavior.
+
+## Formal Case Study
+
+- [Markdown case study](docs/case-study.md)
+- [PDF case study](docs/case-study.pdf)
 
 ## Limitations
 

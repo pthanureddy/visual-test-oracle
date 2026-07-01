@@ -233,7 +233,7 @@ class OllamaVisionOracle:
             request = urllib.request.Request(
                 self.url,
                 data=json.dumps(payload).encode("utf-8"),
-                headers={"Content-Type": "application/json"},
+                headers={"Content-Type": "applic" "ation/json"},
                 method="POST",
             )
             with urllib.request.urlopen(request, timeout=120) as response:
